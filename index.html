@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            /* background: url(./imgs/bgc.jpg) no-repeat center center/cover; */
+            background-image: url(./imgs/bgc.jpg);
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            background-attachment: fixed;
+            background-position: center;
+        }
+        .box-center{
+            color: white;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            border: 1px solid rgba(49, 45, 45, 0.7);
+            border-radius: .3125rem;
+            width: 50rem;
+            height: 25rem;
+            padding: .625rem;
+            background-color: rgba(49, 45, 45, 0.7);
+            display: flex;
+            box-shadow:4px 6px 4px  rgba(49, 45, 45, 0.7);
+        }
+        .box-left{
+            flex: 6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .img-bor{
+            position: relative;
+            width: 300px;
+            height: 300px;
+            overflow: hidden;
+        }
+        .img-bor span{
+            position: absolute;
+            display: block;
+        }
+        .img-bor>span:nth-child(1){
+            top: 0;
+            left: 0;
+            display: block;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg,transparent,#03e9f4);
+            animation: animate1 1s linear infinite;
+        }
+        @keyframes animate1 {
+            0% {
+            left: -100%;
+            }
+
+            50%, 100% {
+            left: 100%;
+            }
+        }
+        .img-bor>span:nth-child(2) {
+            top: -100%;
+            right: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg,transparent,#03e9f4);
+            animation: animate2 1s linear infinite;
+            animation-delay: .25s;
+        }
+        @keyframes animate2 {
+            0% {
+                top: -100%;
+            }
+
+            50%, 100% {
+                top: 100%;
+            }
+        }
+        .img-bor>span:nth-child(3) {
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(270deg,transparent,#03e9f4);
+            animation: animate3 1s linear infinite;
+            animation-delay: .50s;
+        }
+        @keyframes animate3 {
+            0% {
+                right: -100%;
+            }
+
+            50%, 100% {
+                right: 100%;
+            }
+        }
+        .img-bor>span:nth-child(4) {
+            bottom: -100%;
+            left: 0;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(360deg,transparent,#03e9f4);
+            animation: animate4 1s linear infinite;
+            animation-delay: .75s;
+        }
+        @keyframes animate4 {
+            0% {
+                bottom: -100%;
+            }
+            50%, 100% {
+                bottom: 100%;
+            }
+        }
+        .img-bor>img{
+            width: 296px;
+            height: 296px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            /* border: 5px solid /* #409eff */; */
+            /* border-radius: 5px;
+            border-image: linear-gradient(to right, #8f41e9, #578aef) 1; */
+            /* animation: ani-img 2s linear infinite; */
+        }
+        /* @keyframes ani-img {
+            0%{
+                border-left-color: #409eff;
+                border-top-color: #409eff;
+            }
+            25%{
+                border-top-color: transparent;
+                border-right-color: #409eff;
+            }
+            50%{
+                border-right-color: transparent;
+                border-bottom-color: #409eff;
+            }
+            75%{
+                border-bottom-color: transparent;
+                border-left-color: #409eff;
+            }
+            100%{
+                border-left-color: transparent;
+                border-top-color: #409eff;
+            }
+        } */
+        .box{
+            flex: 6;
+            display: flex;
+            flex-direction: column;
+            font-size: 20px;
+        }
+        .box>div>label{
+            display: inline-block;
+            width: 6.25rem;
+        }
+        .box>div:nth-child(5){
+            display: flex;
+            align-items: center;
+        }
+        .box>div:not(:nth-child(5)){
+            flex: 1;
+        }
+        textarea{
+            background-color: rgba(49, 45, 45, 0.7);
+            outline: none;
+            border: none;
+        }
+        input{
+            background-color: rgba(49, 45, 45, 0.7);
+            outline: none;
+            height: 1.25rem;
+            border: none;
+            border-bottom: .0625rem solid black;
+            border-radius: .3125rem;
+        }
+        .box>div>span{
+            font-size: 12px;
+            color: #ff0000;
+        }
+        .footer{
+            margin-top: 10px;
+        }
+        .bottom{
+            position: relative;
+        }
+        #submit{
+            background-color: #409eff;
+            width: 80px;
+            height: 40px;
+            border: none;                      
+            color: #fff;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    </style>
+</head>
+<body>
+    <form action="https://www.baidu.com/" method="post" id="form_data">
+        <div class="box-center">
+            <div class="box-left">
+                <div class="img-bor">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <img src="./imgs/user.jpg" alt="">
+                    
+                </div>
+            </div>
+            <div class="box">
+                <div>
+                    <label for="username">*用户名</label>
+                    <input type="text" name="" id="username" value="">
+                    <span class="username_error_info"></span>
+                </div>
+                <div>
+                    <label for="email">*邮箱</label>
+                    <input type="text" name="" id="email" value="">
+                    <span class="email_error_info"></span>
+                </div>
+                <div>
+                    <label for="password">*密码</label>
+                    <input type="password" name="" id="password" value="">
+                    <span class="password_error_info"></span>
+                </div>
+                <div>
+                    <label for="password_second">*确认密码</label>
+                    <input type="password" name="" id="password_second" value="">
+                    <span class="password_second_error_info"></span>
+                </div>
+                <div>
+                    <label for="textarea">协议</label>
+                    <textarea name="" id="textarea" cols="30" rows="10"></textarea>
+                </div>
+                <div class="footer">
+                    <input type="checkbox" name="" id="xieyi">
+                    <label for="xieyi">同意此协议</label>
+                    <span class="xieyi_second_error_info"></span>
+                </div>
+                <div class="bottom">
+                    <input type="submit" name="" id="submit" value="注册">
+                </div>
+            </div>
+        </div>
+    </form>
+    <script>
+    // 表单验证
+    /* onsubmit表示表单的提交事件,当用户使用input type="submit"或者button按钮提交表单时，
+                                 就会触发表单的onsubmit事件
+      当事件函数返回值为true时，表示允许表单提交,表单就会提交到action所指定服务器地址
+      当事件函数返回值为false时，表示阻止表单提交
+    */
+    document.getElementById("form_data").onsubmit = function(){
+        let uname = document.querySelector('#username').value
+        let email = document.querySelector('#email').value.split('')
+        let email_true = email.indexOf('@')
+        let email_true_second = email.indexOf('.')
+        let password = document.querySelector('#password').value
+        let password_second= document.querySelector('#password_second').value
+        let checkbox = document.querySelector('#xieyi')
+        let isChecked = checkbox.checked
+        // 用户名不能为空
+        if(uname.length <= 0){
+            document.querySelector(".username_error_info").innerText="请输入用户名"
+            return false
+        }
+        // 邮箱格式限制
+        if(email_true == -1){
+            document.querySelector(".email_error_info").innerText="邮箱地址必须带'@'"
+            return false
+        }else if(email_true_second < 0 || email_true_second < email_true){
+            document.querySelector(".email_error_info").innerText="请输入正确的邮箱格式"
+            return false
+        }
+        // 密码
+        if(password.length < 6){
+            document.querySelector(".password_error_info").innerText="密码最少七位数"
+            return false
+        }else if(password != password_second){
+            document.querySelector(".password_second_error_info").innerText="两次密码请输入一致"
+            return false
+        }
+        // 选中协议
+        if(isChecked){
+            document.querySelector(".xieyi_second_error_info").innerText=""
+        }else{
+            document.querySelector(".xieyi_second_error_info").innerText="请阅读并同意协议"
+            return false
+        }
+    }
+    </script>
+</body>
+</html>
